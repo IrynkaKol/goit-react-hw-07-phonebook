@@ -23,8 +23,9 @@ function ContactList() {
 
   return (
     <List>
-      {getVisibleContacts().map(({ id, name, number }) => (
+      {getVisibleContacts().map(({ id, name, number, avatar }) => (
         <li key={id}>
+          <img width={60} src={avatar} alt="avatar"/>
           {name}: {number}
           <Button onClick={() => handleDelete(id)}>Delete</Button>
         </li>
