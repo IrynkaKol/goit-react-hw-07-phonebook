@@ -20,7 +20,7 @@ const contactsSlice = createSlice({
     items: [],
     isLoading: false,
     error: null,
-    filter: '',
+    
   },
   extraReducers: {
     [fetchContacts.pending]: handlePending,

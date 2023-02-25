@@ -24,10 +24,10 @@ const ContactList = () => {
 
   return (
     <List>
-      {visibleContacts.map(( contact, {id} ) => (
+      {visibleContacts.map(({ id, name, phone }) => (
         <li key={id}>
-          {contact.name}: {contact.phone}
-          <Button onClick={() => handleDelete(contact.id)}>Delete</Button>
+          {name}: {phone}
+          <Button onClick={() => handleDelete(id)}>Delete</Button>
         </li>
       ))}
     </List>
