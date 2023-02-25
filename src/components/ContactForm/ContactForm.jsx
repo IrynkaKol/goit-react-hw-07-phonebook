@@ -38,7 +38,7 @@ export const ContactForm = () => {
       Notiflix.Notify.info(`Contact ${name} already exist`);
       
     } else {
-      dispatch(addContact({ name: name, number: number }));
+      dispatch(addContact({ name: name, phone: number }));
     }
 
     form.reset();
