@@ -34,8 +34,7 @@ export const Button = styled.button`
   border: 2px solid #4caf50;
   display: inline-block;
  
-  
-  &:hover, &:focus {
+    &:hover, &:focus {
     background-color: #008CBA;
     color: white;
     box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
