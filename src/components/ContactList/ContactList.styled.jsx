@@ -19,6 +19,8 @@ list-style-type: none;
 export const Wrapper = styled.div`
 displey: flex;
 flex-direction: column;
+aligen-items: flex-start;
+justfy-content: flex-end;
 
 `
 
