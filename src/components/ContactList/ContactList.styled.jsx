@@ -12,6 +12,10 @@ export const Avatar = styled.img`
 border-radius: 50%;
 `
 
+export const Item = styled.li`
+list-style-type: none;
+`
+
 
 export const Button = styled.button`
   margin-left: 15px;
