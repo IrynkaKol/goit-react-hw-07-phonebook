@@ -14,7 +14,11 @@ border-radius: 50%;
 `
 
 export const Item = styled.li`
-list-style-type: none;
+display: flex;
+justify-content: space-between;
+&:not(:last-child) {
+    margin-bottom: 10px;
+  }
 `
 export const Wrapper = styled.div`
 displey: flex;
