@@ -1,5 +1,5 @@
 import React from 'react';
-import { List, Button } from './ContactList.styled';
+import { List, Avatar, Button } from './ContactList.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectContacts, selectStatusFilter } from 'redux/selector';
 import { deleteContact, fetchContacts } from 'redux/operations';
@@ -12,7 +12,8 @@ function ContactList() {
 
   const getVisibleContacts = () => {
     return contacts.filter(contact =>
-      contact.name.toLowerCase().includes(filter.trim().toLowerCase()));
+      contact.name.toLowerCase().includes(filter.trim().toLowerCase())
+    );
   };
 
   useEffect(() => {
@@ -24,8 +25,8 @@ function ContactList() {
   return (
     <List>
       {getVisibleContacts().map(({ id, name, number, avatar }) => (
-        <li key={id}>
-          <img width={60} src={avatar} alt="avatar"/>
+        <Avatar key={id}>
+          <img width={60} src={avatar} alt="avatar" />
           {name}: {number}
           <Button onClick={() => handleDelete(id)}>Delete</Button>
         </li>

@@ -8,6 +8,9 @@ export const List = styled.ul`
   gap: 5px;
 `;
 
+export const Avatar = styled.img`
+border-radius: 50%;
+`
 
 
 export const Button = styled.button`
