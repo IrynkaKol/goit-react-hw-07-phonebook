@@ -7,57 +7,50 @@ import { useDispatch, useSelector } from 'react-redux';
 import Notiflix from 'notiflix';
 import { addContact } from 'redux/operations';
 import { selectContacts } from 'redux/selector';
-import { useState } from 'react';
 
-export const ContactForm = () => {
+
+function ContactForm () {
   const schema = yup.object().shape({
     name: yup.string().required(),
     number: yup.string().min(6).max(16).required(),
   });
 
-  const [ name, setName ] = useState('');
-  const [ number, setNumber ] = useState('');
+  
   const dispatch = useDispatch();
-  const items = useSelector(selectContacts);
+  const contacts = useSelector(selectContacts);
+  const initialValues = {
+    name: '',
+    number: '',
+  }
 
-  const handleChangeName = e => {
-    const { value } = e.target;
-    setName(value);
-  };
-
-  const handleChangeNumber = e => {
-    const { value } = e.target;
-    setNumber(value);
-  };
-
-  const handleSubmit = e => {
-    e.preventDefault();
-    const form = e.curentTarget;
-    const allContacts = [...items];
-    if (allContacts.findIndex(contact => name === contact.name) !== -1) {
-      Notiflix.Notify.info(`Contact ${name} already exist`);
-      
-    } else {
-      dispatch(addContact({ name: name, number: number }));
-    }
-
-    form.reset();
+  
+  const handleSubmit = (items, {resetForm}) => {
+    
+    const allContacts = {...items};
+    if (contacts.find(
+      ({name}) => name.toLowerCase() === allContacts.name.trim().toLowerCase())) {
+      Notiflix.Notify.info(`Contact ${allContacts.name} already exist`);
+      resetForm();
+      return;
+    } 
+      dispatch(addContact(allContacts));
+        resetForm();
   };
 
   return (
     <Formik
-      initialValues={{ name: '', number: '' }}
+      initialValues={initialValues}
       validationSchema={schema}
       onSubmit={handleSubmit}
     >
-      <FormStyled >
+      <FormStyled>
         <Label htmlFor="name">
           Name
           <Input
             type="text"
             name="name"
             placeholder="Name"
-            onChange={handleChangeName}
+           
           />
           <ErrorMessage component="div" name="name" />
         </Label>
@@ -67,7 +60,7 @@ export const ContactForm = () => {
             type="tel"
             name="number"
             placeholder="Number"
-            onChange={handleChangeNumber}
+            
           />
           <ErrorMessage component="div" name="number" />
         </Label>
