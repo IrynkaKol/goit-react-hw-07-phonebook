@@ -26,8 +26,9 @@ function ContactList() {
     <List>
       {getVisibleContacts().map(({ id, name, number, avatar }) => (
         <li key={id}>
-          <Avatar width={60} src={avatar} alt="avatar" />
           <Wrapper>
+          <Avatar width={60} src={avatar} alt="avatar" />
+          
             <span>{name}: </span>
             <span>{number} </span>
           </Wrapper>
