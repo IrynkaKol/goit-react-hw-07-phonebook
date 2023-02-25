@@ -15,8 +15,8 @@ export const ContactForm = () => {
     number: yup.string().min(6).max(16).required(),
   });
 
-  const { name, setName } = useState('');
-  const { number, setNumber } = useState('');
+  const [ name, setName ] = useState('');
+  const [ number, setNumber ] = useState('');
   const dispatch = useDispatch();
   const items = useSelector(selectContacts);
 
@@ -38,7 +38,7 @@ export const ContactForm = () => {
       Notiflix.Notify.info(`Contact ${name} already exist`);
       
     } else {
-      dispatch(addContact({ name: name, phone: number }));
+      dispatch(addContact({ name: name, number: number }));
     }
 
     form.reset();
