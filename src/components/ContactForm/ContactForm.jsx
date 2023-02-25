@@ -34,9 +34,9 @@ export const ContactForm = () => {
     e.preventDefault();
     const form = e.curentTarget;
     const allContacts = [...items];
-    if (allContacts.some(item => item.name === name)) {
+    if (allContacts.findIndex(contact => name === contact.name) !== -1) {
       Notiflix.Notify.info(`Contact ${name} already exist`);
-      return;
+      
     } else {
       dispatch(addContact({ name: name, phone: number }));
     }
@@ -50,7 +50,7 @@ export const ContactForm = () => {
       validationSchema={schema}
       onSubmit={handleSubmit}
     >
-      <FormStyled>
+      <FormStyled >
         <Label htmlFor="name">
           Name
           <Input

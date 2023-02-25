@@ -20,7 +20,7 @@ const ContactList = () => {
   const visibleContacts = getVisibleContacts(contacts, filter);
 
   const dispatch = useDispatch();
-  const handleDelete = contact => dispatch(deleteContact(contact.id));
+  const handleDelete = id => dispatch(deleteContact(id));
 
   return (
     <List>
