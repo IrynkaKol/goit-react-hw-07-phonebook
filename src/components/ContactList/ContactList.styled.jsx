@@ -15,6 +15,11 @@ border-radius: 50%;
 export const Item = styled.li`
 list-style-type: none;
 `
+export const Wrapper = styled.div`
+displey: flex;
+flex-direction: column;
+
+`
 
 
 export const Button = styled.button`
