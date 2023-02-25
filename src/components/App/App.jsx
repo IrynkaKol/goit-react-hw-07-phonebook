@@ -22,10 +22,10 @@ export function App() {
     <Container>
       <Section title="Phonebook">
         <ContactForm />
-        {isLoading && !error && <b>Request in progress...</b>}
       </Section>
       <Section title="Contacts">
         <Filter />
+        {isLoading && !error && <b>Request in progress...</b>}
         <ContactList />
       </Section>
     </Container>
