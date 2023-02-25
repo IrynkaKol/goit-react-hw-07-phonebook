@@ -1,5 +1,5 @@
 import React from 'react';
-import { List, Avatar, Button } from './ContactList.styled';
+import { List, Avatar,Button } from './ContactList.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectContacts, selectStatusFilter } from 'redux/selector';
 import { deleteContact, fetchContacts } from 'redux/operations';
@@ -25,8 +25,8 @@ function ContactList() {
   return (
     <List>
       {getVisibleContacts().map(({ id, name, number, avatar }) => (
-        <Avatar key={id}>
-          <img width={60} src={avatar} alt="avatar" />
+        <li key={id}>
+          <Avatar width={60} src={avatar} alt="avatar" />
           {name}: {number}
           <Button onClick={() => handleDelete(id)}>Delete</Button>
         </li>
