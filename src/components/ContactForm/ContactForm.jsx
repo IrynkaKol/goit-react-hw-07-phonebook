@@ -1,7 +1,7 @@
 import React from 'react';
 import { Formik, ErrorMessage } from 'formik';
 import * as yup from 'yup';
-import { FormStyled, Label, Input, Button } from './ContactForm.styled';
+import { FormStyled, Input, Button } from './ContactForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
 
 import Notiflix from 'notiflix';
@@ -44,7 +44,7 @@ function ContactForm () {
       onSubmit={handleSubmit}
     >
       <FormStyled>
-        <Label htmlFor="name">
+        <label htmlFor="name">
           Name
           <Input
             type="text"
@@ -53,8 +53,8 @@ function ContactForm () {
            
           />
           <ErrorMessage component="div" name="name" />
-        </Label>
-        <Label htmlFor="number">
+        </label>
+        <label htmlFor="number">
           Number
           <Input
             type="tel"
@@ -63,7 +63,7 @@ function ContactForm () {
             
           />
           <ErrorMessage component="div" name="number" />
-        </Label>
+        </label>
         <Button type="submit">Add contact</Button>
       </FormStyled>
     </Formik>

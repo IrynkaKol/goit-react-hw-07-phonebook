@@ -1,5 +1,12 @@
 import React from 'react';
-import { List, Avatar, Wrapper, Button } from './ContactList.styled';
+import {
+  List,
+  Item,
+  Contact,
+  Avatar,
+  Wrapper,
+  Button,
+} from './ContactList.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectContacts, selectStatusFilter } from 'redux/selector';
 import { deleteContact, fetchContacts } from 'redux/operations';
@@ -25,15 +32,17 @@ function ContactList() {
   return (
     <List>
       {getVisibleContacts().map(({ id, name, number, avatar }) => (
-        <li key={id}>
-          <Wrapper>
-          <Avatar width={60} src={avatar} alt="avatar" />
-          
-            <span>{name}: </span>
-            <span>{number} </span>
-          </Wrapper>
+        <Item key={id}>
+          <Contact>
+            <Avatar width={50} src={avatar} alt="avatar" />
+            <Wrapper>
+              <span>{name}: </span>
+              <br />
+              <span>{number} </span>
+            </Wrapper>
+          </Contact>
           <Button onClick={() => handleDelete(id)}>Delete</Button>
-        </li>
+        </Item>
       ))}
     </List>
   );

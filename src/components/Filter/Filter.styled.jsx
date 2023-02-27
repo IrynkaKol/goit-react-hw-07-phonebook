@@ -3,14 +3,14 @@ import styled from '@emotion/styled';
 export const Label = styled.label`
   display: flex;
   flex-direction: column;
-  gap: 15px;
   justify-content: center;
   align-items: center;
+  font-size: 15px;
 `;
 export const Input = styled.input`
   width: 100%;
   padding: 12px 20px;
-  margin: 8px 0;
+  margin: 15px 0;
   box-sizing: border-box;
   background-color: white;
   color: black;
