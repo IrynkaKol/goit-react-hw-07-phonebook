@@ -14,15 +14,7 @@ const extraActions = [
 ];
 
 const getActions = type => extraActions.map(action => action[type]);
-/*
-const handlePending = state => {
-  state.isLoading = true;
-};
 
-const handleRejected = (state, action) => {
-  state.isLoading = false;
-  state.error = action.payload;
-};*/
 const contactsSlice = createSlice({
   name: 'contacts',
   initialState: {
